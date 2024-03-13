@@ -14,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view("students.index");
+        $students = Student::all();
+        return view("students.index", compact("students"));
     }
 
     /**
@@ -66,7 +67,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        dd($student);
     }
 
     /**
